@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>demo4</title>
+</head>
+
+<body>
+  <input type="text" id="input">
+  <span id="error" style="color: red">最大字符数限制为 10</span>
+
+
+  <script>
+    var input = document.getElementById('input')
+    var errorMsg = document.getElementById('error')
+
+    // 状态
+    var state = {
+      value: "",
+      error: false
+    }
+
+    // 修改状态
+    var setState = function (newState) {
+      state = {
+        ...state,
+        ...newState
+      }
+      render()
+    }
+
+    // 渲染页面
+    var render = function () {
+      input.value = state.value
+      if (state.error) {
+        errorMsg.style.display = 'block'
+      } else {
+        errorMsg.style.display = 'none'
+      }
+    }
+
+    // 检测input字符串长度
+    var handleInput = function (value) {
+      if (value.length < 10) {
+        setState({
+          value: value
+        })
+      } else {
+        setState({
+          error: true
+        })
+      }
+    }
+
+
+    // 添加事件句柄
+    input.addEventListener('input', function () {
+      handleInput(this.value)
+    })
+
+
+    // 加载页面即执行函数
+    render()
+
+
+  </script>
+
+
+
+</body>
+
+</html>

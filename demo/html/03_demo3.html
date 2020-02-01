@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>demo3</title>
+</head>
+
+<body>
+  <input type="text" id="input" style="width: 600px">
+
+  <script>
+    var input = document.getElementById('input')
+
+    // 状态
+    var state = {
+      value: ""
+    }
+
+    // 此函数用来修改状态
+    var setState = function (newState) {
+      state = {
+        ...state,
+        ...newState
+      }
+      render()
+    }
+
+    // 渲染
+    var render = function () {
+      input.value = state.value + "--state.value";
+    }
+
+
+    // addEventListener() 方法用于向指定元素添加事件句柄
+    input.addEventListener('input', function () {
+      setState(
+        {
+          value: this.value
+        }
+      )
+      // console.log(state.value);
+    })
+
+
+  </script>
+
+
+
+</body>
+
+</html>

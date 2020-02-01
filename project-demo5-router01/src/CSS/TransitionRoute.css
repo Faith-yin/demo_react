@@ -1,0 +1,56 @@
+.menu {
+  display: flex;
+  justify-content: space-around
+}
+
+.menu li {
+  list-style: none;
+}
+
+.menu li a {
+  color: black;
+}
+
+.page {
+  height: 300px;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+  color: white;
+  padding: 50px;
+  font-size: 30px;
+}
+
+.page.pageRed {
+  background-color: red;
+}
+
+.page.pageGreen {
+  background-color: green;
+}
+
+.page.pagePink {
+  background-color: rgb(241, 84, 110);
+}
+
+.page.pageOrange {
+  background-color: orange;
+}
+
+.fade-enter {
+  opacity: 0;
+  z-index: 1;
+}
+
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity 1s ease-in;
+}
+
+
+
+
+

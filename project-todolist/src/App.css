@@ -1,0 +1,39 @@
+body {
+  background-color: #ff6700;
+}
+
+.wrapper {
+  padding: 100px;
+}
+
+input {
+  width: 200px;
+  height: 25px;
+  font-size: 14px;
+  padding: 3px;
+  margin-right: 5px;
+  border: 1px solid #e6b61c;
+}
+
+.btn {
+  width: 65px;
+  height: 33px;
+  background-color: rgb(51,133,255);
+  padding: 3px;
+  border: 1px solid #f0c7ac;
+  color: #fff;
+}
+
+.btn:hover {
+  background-color: rgba(51,133,255, .8);
+  cursor: pointer;
+}
+
+ol.container {
+  background-color: rgba(255, 255, 255, .4);
+  list-style-type: decimal-leading-zero;
+}
+
+ol.container li {
+  padding: 10px;
+}

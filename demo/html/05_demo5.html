@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>demo5</title>
+</head>
+<body>
+  <!-- 此 demo 更加接近 React 的开发者模式：没有 html ，纯 js 完成应用的开发 -->
+
+  <!-- JSX -->
+  <div id="root"></div>
+
+
+  <script>
+    var root = document.getElementById('root')
+
+    // 状态
+    var state = {
+      like: false
+    }
+
+    // 修改状态
+    var setState = function(newState) {
+      state = {
+        ...state,
+        ...newState
+      }
+      render()
+    }
+
+    // 添加绑定事件
+    var handleClick = function() {
+      setState(
+        {
+          like: !state.like
+        }
+      )
+    }
+
+    // 渲染页面
+    var render = function() {
+      root.innerHTML = 
+      `
+        <button type="button" style="color: ${state.like ? "red" : "balck"}" onclick="handleClick()">
+          ${state.like ? "已赞" : "喜欢"}
+        </button>
+      `
+    }
+
+
+    render()
+
+  </script>
+
+
+  
+</body>
+</html>
