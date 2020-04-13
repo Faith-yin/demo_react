@@ -9,7 +9,7 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 function App(props) {
   // 通过 about 和 info 可以看出 URL 传参的过程
   // 1  /： 可以传任何参数，可以指定多个
-  // 2  /:drrection  只能传给定的参数
+  // 2  /:direction  只能传给定的参数
   return (
     <Router>
       <div>

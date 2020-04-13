@@ -45,6 +45,7 @@ class App extends Component {
       themeColor: 'orange'
     }
   }
+  // 用于说明所传递的数据类型
   static childContextTypes = {
     themeColor: PropTypes.string,
     handleChangeThemeColor: PropTypes.func
@@ -54,10 +55,11 @@ class App extends Component {
       themeColor: color
     })
   }
+  // getChildContext 表示该组件通过context传递数据，该方法返回的对象就是context需要传递的数据
   getChildContext() {
     return {
       themeColor: this.state.themeColor,
-      handleChangeThemeColor: (color)=>this.handleChangeThemeColor(color)
+      handleChangeThemeColor: (color) => this.handleChangeThemeColor(color)
     }
   }
   render() {
