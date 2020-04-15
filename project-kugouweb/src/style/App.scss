@@ -1,0 +1,15 @@
+@import '../style/views/public.scss';
+
+#App {
+  a {
+    text-decoration: none;
+    color: #000;
+  }
+  ul, ol {
+    li {
+      list-style: none;
+    }
+  }
+}
+
+

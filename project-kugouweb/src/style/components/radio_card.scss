@@ -1,0 +1,120 @@
+#radio-card {
+  width: 1000px;
+  height: 375px;
+  margin: 30px auto 15px;
+  display: flex;
+  justify-content: space-between;
+
+  .left-container {
+    width: 650px;
+    height: 300px;
+    .title-box {
+      padding-bottom: 15px;
+      display: flex;
+      justify-content: space-between;
+      .main-title {
+        font-size: 28px;
+        color: #555;
+        cursor: default;
+        span {
+          color: #009af3;
+        }
+      }
+      .more {
+        line-height: 40px;
+        &:hover {
+          color: #009af3;
+          cursor: pointer;
+        }
+      }
+    }
+    .radio-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      .left-item {
+        &:nth-child(1), &:nth-child(2), &:nth-child(3), &:nth-child(4) {
+          margin: 0 25px 10px 0;
+        }
+        &:nth-child(6), &:nth-child(7), &:nth-child(8), &:nth-child(9) {
+          margin: 0 25px 0px 0;
+        }
+        &:hover {
+          color: #009af3;
+          cursor: pointer;
+        }
+        .desc {
+          width: 100px;
+          padding-top: 10px;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  .right-container {
+    width: 300px;
+    .title-box {
+      padding-bottom: 15px;
+      display: flex;
+      justify-content: space-between;
+      .main-title {
+        font-size: 28px;
+        color: #555;
+        cursor: default;
+        span {
+          color: #009af3;
+        }
+      }
+      .itemname {
+        cursor: pointer;
+        line-height: 40px;
+        &:hover {
+          color: #009af3;
+        }
+      }
+      .more {
+        color: #999;
+        &:hover {
+          color: #009af3;
+          cursor: pointer;
+        }
+      }
+    }
+    .right-bottom {
+      .top {
+        margin-bottom: 15px;
+        display: flex;
+        justify-content: space-between;
+        .top-item {
+          position: relative;
+          img {
+            cursor: pointer;
+          }
+          .desc {
+            width: 100%;
+            padding: 5px;
+            color: #fff;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+          }
+        }
+      }
+      .bottom {
+        display: flex;
+        justify-content: space-between;
+        .bottom-item {
+
+        }
+      }
+    }
+  }
+
+
+
+
+
+
+  
+}

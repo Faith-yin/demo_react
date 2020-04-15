@@ -1,0 +1,40 @@
+#link {
+  width: 1000px;
+  margin: 30px auto 40px;
+
+  .title-box {
+    padding-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    .main-title {
+      font-size: 28px;
+      color: #555;
+      cursor: default;
+      span {
+        color: #009af3;
+      }
+    }
+    .more {
+      line-height: 40px;
+      &:hover {
+        color: #009af3;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .link-list {
+    display: flex;
+    flex-wrap: wrap;
+    .link-item {
+      margin: 0 60px 20px 0;
+      &:hover {
+        color: #009af3;
+        cursor: pointer;
+      }
+    }
+  }
+
+
+
+}
