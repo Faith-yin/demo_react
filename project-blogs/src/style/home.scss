@@ -1,0 +1,30 @@
+#home {
+
+  .title-box {
+    display: flex;
+    justify-content: flex-end;
+    h4 {
+      position: absolute;
+      left: 50%;
+      margin-left: -32px;
+    }
+  }
+
+  .list {
+    margin: 20px;
+    .item-box {
+      display: flex;
+      justify-content: space-between;
+      padding: 15px 10px;
+      &:hover {
+        background-color: #ff6700;
+        border-radius: 10px;
+        cursor: pointer;
+      }
+    }
+  }
+
+
+
+
+}

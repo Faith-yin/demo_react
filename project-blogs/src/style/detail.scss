@@ -1,0 +1,35 @@
+#detail {
+  .title-box {
+    display: flex;
+    justify-content: space-between;
+    span {
+      &:hover {
+        cursor: pointer;
+        color: #ff6700;
+      }
+    }
+  }
+
+  .content-box {
+    text-align: center;
+    h5 {
+      margin: 20px;
+    }
+    .display--flex {
+      display: flex;
+      justify-content: center;
+      margin: 10px;
+      color: #999;
+      font-size: 12px;
+      .author {
+        margin-right: 15px;
+      }
+      .createTime {
+        margin-left: 15px;
+      }
+    }
+    .content {
+      margin: 50px;
+    }
+  }
+}
