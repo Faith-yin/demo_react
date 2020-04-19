@@ -1,5 +1,5 @@
 import React from 'react'
-import '../style/home.scss'
+import '../style/views/home.scss'
 import {Button} from 'rsuite'
 import {connect} from 'react-redux'
 import * as TYPE from '../store/actionCreators.js'

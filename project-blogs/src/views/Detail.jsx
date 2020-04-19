@@ -1,9 +1,10 @@
 import React from 'react'
-import '../style/detail.scss'
+import '../style/views/detail.scss'
 import {connect} from 'react-redux'
 import * as TYPE from '../store/actionCreators.js'
-import {Button, Modal, Form, FormGroup, FormControl, ControlLabel, Alert} from 'rsuite'
+import {Button, Modal, Alert} from 'rsuite'
 import moment from 'moment'
+import FormMenu from '../components/FormMenu.jsx'
 
 
 class Detail extends React.Component {
@@ -17,10 +18,6 @@ class Detail extends React.Component {
       },
       show: false
     }
-  }
-  // 组件加载完毕
-  componentDidMount() {
-
   }
   /**
    * @author: 殷鹏飞
@@ -62,11 +59,10 @@ class Detail extends React.Component {
    * @Date: 2020-04-18 17:00:17
    * @information: 提交
    */
-  submit() {
-    let {form} = this.state
+  onSubmit(val) {
     let index = (this.props.match.params.id) - 1
     // 调用store的方法
-    this.props.onSubmit(index, form)
+    this.props.onSubmit(index, val)
     Alert.success('更新成功')
     this.setState({show: false})
   }
@@ -79,11 +75,13 @@ class Detail extends React.Component {
       <div id="detail" className="container">
         {/* 详情部分 */}
         <div className="detail-box">
+          {/* 标题部分 */}
           <div className="title-box">
             <span onClick={() => this.goBack()}>返回</span>
             <h4 className="font-center">Detail</h4>
             <Button color="orange" onClick={() => this.updateClick()}>update</Button>
           </div>
+          {/* 内容部分 */}
           <div className="content-box">
             <h5>{detailInfo.title}</h5>
             <div className="display--flex">
@@ -102,29 +100,14 @@ class Detail extends React.Component {
               <Modal.Title>Update</Modal.Title>
             </Modal.Header>
             <Modal.Body>
-              <Form formValue={form} layout="horizontal">
-                <FormGroup>
-                  <ControlLabel>Username</ControlLabel>
-                  <FormControl name="username" onChange={(e) => this.handleChange(e, 'username')} />
-                </FormGroup>
-                <FormGroup>
-                  <ControlLabel>Title</ControlLabel>
-                  <FormControl name="title" onChange={(e) => this.handleChange(e, 'title')}/>
-                </FormGroup>
-                <FormGroup>
-                  <ControlLabel>Content</ControlLabel>
-                  <FormControl rows={8} name="content" componentClass="textarea" onChange={(e) => this.handleChange(e, 'content')} />
-                </FormGroup>
-              </Form>
+              {/* 父组件和子组件通信 */}
+              <FormMenu showBtn='true'
+                        formVal={form}
+                        firstBtnText='Cancel'
+                        firstBtnMethod='onCancel'
+                        sendOnCancel={() => this.setState({show: false})}
+                        onForm={(val) => this.onSubmit(val)}></FormMenu>
             </Modal.Body>
-            <Modal.Footer>
-              <Button onClick={() => this.setState({show: false})} appearance="default">
-                Cancel
-              </Button>
-              <Button onClick={() => this.submit()} appearance="primary">
-                Submit
-              </Button>
-            </Modal.Footer>
           </Modal>
         </div>
       </div>

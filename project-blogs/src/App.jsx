@@ -22,7 +22,10 @@ export default class App extends React.Component {
       <Router>
         <Switch>
           {routerConfig.map((el,index) => 
-            <Route key={index} exact={el.exact} path={el.path} component={el.component} />
+            <Route key={index} 
+                  exact={el.exact} 
+                  path={el.path} 
+                  component={el.component} />
             )}
         </Switch>
       </Router>

@@ -1,5 +1,5 @@
 import React from 'react'
-import '../style/not_found.scss'
+import '../style/views/not_found.scss'
 
 
 export default class NotFound extends React.Component {
