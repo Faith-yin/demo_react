@@ -3,13 +3,28 @@ import '../style/views/add.scss'
 import {connect} from 'react-redux'
 import * as TYPE from '../store/actionCreators.js'
 import FormMenu from '../components/FormMenu.jsx'
-import {Alert} from 'rsuite'
+import {Alert, Icon} from 'rsuite'
 
 
 class Add extends React.Component {
   constructor(props) {
     super(props)
     this.state = {}
+  }
+  render() {
+    return (
+      <div id="add" className="container">
+        <div className="title-box">
+          <h4 className="font-center">Add</h4>
+          <span onClick={() => this.goBack()}><Icon icon='angle-left' style={{paddingRight: '5px'}}></Icon>返回</span>
+        </div>
+        {/* 父组件和子组件通信 */}
+        <FormMenu showBtn='true'
+                  firstBtnText='Reset'
+                  firstBtnMethod='onReset'
+                  onForm={(val) => this.onSubmit(val)}></FormMenu>
+      </div>
+    )
   }
   /**
    * @author: 殷鹏飞
@@ -29,32 +44,17 @@ class Add extends React.Component {
     this.props.onSubmit(val)
     Alert.success('添加成功')
   }
-  render() {
-    return (
-      <div id="add" className="container">
-        <div className="title-box">
-          <h4 className="font-center">Add</h4>
-          <span onClick={() => this.goBack()}>返回</span>
-        </div>
-        {/* 父组件和子组件通信 */}
-        <FormMenu showBtn='true'
-                  firstBtnText='Reset'
-                  firstBtnMethod='onReset'
-                  onForm={(val) => this.onSubmit(val)}></FormMenu>
-      </div>
-    )
-  }
 }
 
 
 // 映射：将 store 里面的内容映射到 props 中
+
 // mapStateToProps
 const mapStateToProps = (state) => {
   return {
     list: state.list
   }
 }
-
 
 // mapDispatchToProps
 const mapDispatchToProps = (dispatch) => {

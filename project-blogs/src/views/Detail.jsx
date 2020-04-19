@@ -2,7 +2,7 @@ import React from 'react'
 import '../style/views/detail.scss'
 import {connect} from 'react-redux'
 import * as TYPE from '../store/actionCreators.js'
-import {Button, Modal, Alert} from 'rsuite'
+import {Button, Modal, Alert, Icon} from 'rsuite'
 import moment from 'moment'
 import FormMenu from '../components/FormMenu.jsx'
 
@@ -19,53 +19,6 @@ class Detail extends React.Component {
       show: false
     }
   }
-  /**
-   * @author: 殷鹏飞
-   * @Date: 2020-04-17 18:16:36
-   * @information: 返回
-   */
-  goBack() {
-    this.props.history.go(-1)
-  }
-  /**
-   * @author: 殷鹏飞
-   * @Date: 2020-04-18 15:09:08
-   * @information: 修改
-   */
-  updateClick() {
-    let {list} = this.props
-    let {id} = this.props.match.params
-    this.setState({
-      form: list[id-1],
-      show: true
-    })
-  }
-  /**
-   * @author: 殷鹏飞
-   * @Date: 2020-04-18 16:58:36
-   * @information: input 值改变时
-   */
-  handleChange(e, type) {
-    let {form} = this.state
-    this.setState({
-      form: {
-        ...form,
-        [type]: e
-      }
-    })
-  }
-  /**
-   * @author: 殷鹏飞
-   * @Date: 2020-04-18 17:00:17
-   * @information: 提交
-   */
-  onSubmit(val) {
-    let index = (this.props.match.params.id) - 1
-    // 调用store的方法
-    this.props.onSubmit(index, val)
-    Alert.success('更新成功')
-    this.setState({show: false})
-  }
   render() {
     let {form} = this.state
     let {list} = this.props
@@ -77,7 +30,9 @@ class Detail extends React.Component {
         <div className="detail-box">
           {/* 标题部分 */}
           <div className="title-box">
-            <span onClick={() => this.goBack()}>返回</span>
+            <span onClick={() => this.goBack()}>
+              <Icon icon='angle-left' style={{paddingRight: '5px'}}></Icon>返回
+            </span>
             <h4 className="font-center">Detail</h4>
             <Button color="orange" onClick={() => this.updateClick()}>update</Button>
           </div>
@@ -112,6 +67,39 @@ class Detail extends React.Component {
         </div>
       </div>
     )
+  }
+  /**
+   * @author: 殷鹏飞
+   * @Date: 2020-04-17 18:16:36
+   * @information: 返回
+   */
+  goBack() {
+    this.props.history.go(-1)
+  }
+  /**
+   * @author: 殷鹏飞
+   * @Date: 2020-04-18 15:09:08
+   * @information: 修改
+   */
+  updateClick() {
+    let {list} = this.props
+    let {id} = this.props.match.params
+    this.setState({
+      form: list[id-1],
+      show: true
+    })
+  }
+  /**
+   * @author: 殷鹏飞
+   * @Date: 2020-04-18 17:00:17
+   * @information: 提交
+   */
+  onSubmit(val) {
+    let index = (this.props.match.params.id) - 1
+    // 调用store的方法
+    this.props.onSubmit(index, val)
+    Alert.success('更新成功')
+    this.setState({show: false})
   }
 }
 

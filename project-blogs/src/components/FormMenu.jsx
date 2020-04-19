@@ -43,7 +43,6 @@ export default class FormMenu extends React.Component {
               </FormGroup> 
             )
           }
-          
         </Form>
       </React.Fragment>
     )
@@ -102,6 +101,7 @@ export default class FormMenu extends React.Component {
    * @information: 退出
    */
   onCancel() {
+    // 给父组件通信：响应父组件方法
     this.props.sendOnCancel()
   }
   /**
